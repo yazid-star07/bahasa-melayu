@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anak Tekak</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background: radial-gradient(ellipse at bottom,#0d0d1a 0%,#000 100%);
+  color:white;
+  text-align:center;
+  padding:20px;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* ===== STARS ===== */
+.star{
+  position:fixed;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 3s infinite;
+  box-shadow:0 0 6px white;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:10px 15px;
+  background:rgba(255,77,77,0.2);
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.2);
+  font-size:18px;
+  transition:0.3s ease;
+  z-index:1000;
+}
+
+.back-btn:hover{
+  background:#ff4d4d;
+  box-shadow:0 0 10px #ff4d4d, 0 0 20px #ff4d4d;
+  transform:scale(1.1);
+}
+
+/* ===== CONTENT ===== */
+.container{
+  margin-top:100px;
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+h1{
+  color:#ffcc00;
+  text-shadow:0 0 15px #ffcc00;
+  font-size:clamp(24px,5vw,32px);
+  margin-bottom:30px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeSlideUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== NOTE CARD ===== */
+.note{
+  margin:25px auto;
+  padding:20px;
+  max-width:650px;
+  border-radius:15px;
+  text-align:left;
+  line-height:1.7;
+
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+
+  opacity:0;
+  animation:fadeSlideUp 1s forwards;
+  transition:0.3s ease;
+}
+
+/* DELAY */
+.note:nth-of-type(1){animation-delay:0.3s;}
+.note:nth-of-type(2){animation-delay:0.6s;}
+.note:nth-of-type(3){animation-delay:0.9s;}
+
+/* COLORS */
+.note.nota{
+  background:rgba(255,204,0,0.08);
+  border-left:4px solid #ffcc00;
+}
+.note.nota:hover{ box-shadow:0 0 20px #ffcc00; }
+
+.note.peranan{
+  background:rgba(0,200,255,0.08);
+  border-left:4px solid #00c8ff;
+}
+.note.peranan:hover{ box-shadow:0 0 20px #00c8ff; }
+
+.note.bunyi{
+  background:rgba(255,100,150,0.08);
+  border-left:4px solid #ff6496;
+}
+.note.bunyi:hover{ box-shadow:0 0 20px #ff6496; }
+
+/* HOVER FLOAT */
+.note:hover{
+  transform:translateY(-8px) scale(1.02);
+}
+
+/* RESPONSIVE TEXT */
+p, .note{
+  font-size:clamp(14px, 4vw, 16px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACK BUTTON TOP LEFT -->
+<a href="services.html" class="back-btn">⬅ Kembali</a>
+
+<div class="container">
+  <h1>Anak Tekak</h1>
+
+  <!-- NOTA -->
+  <div class="note nota">
+    <strong>📌 Nota:</strong><br>
+    1. Anak tekak adalah bahagian belakang tekak yang termasuk faring dan sering dianggap artikulator pasif.<br>
+    2. Ia berfungsi sebagai permukaan untuk lidah belakang dan lelangit lembut semasa penghasilan bunyi tertentu.
+  </div>
+
+  <!-- PERANAN -->
+  <div class="note peranan">
+    <strong>⚙️ Peranan:</strong><br>
+    1. Titik Persentuhan: Lidah belakang bersentuhan atau mendekati anak tekak untuk membentuk bunyi faringal.<br>
+    2. Penyekatan Udara: Mengawal aliran udara melalui faring untuk menghasilkan bunyi khas.<br>
+    3. Artikulator Pasif: Menjadi permukaan tetap semasa lidah atau organ lain bergerak untuk bunyi tertentu.
+  </div>
+
+  <!-- BUNYI -->
+  <div class="note bunyi">
+    <strong>🔊 Penghasilan Bunyi Bahasa:</strong><br>
+    1. Bunyi faringal: [ʕ], [ħ] – dihasilkan apabila belakang lidah bersentuhan atau mendekati anak tekak.<br>
+    2. Bunyi lain: Sesetengah bahasa menggunakan anak tekak untuk bunyi geseran atau konsonan khas.
+  </div>
+
+</div>
+
+<script>
+// ===== STARS =====
+for(let i=0;i<80;i++){  
+  let star=document.createElement('div');
+  star.className='star';
+  star.style.top=Math.random()*100+'vh';
+  star.style.left=Math.random()*100+'vw';
+  star.style.width = star.style.height = (Math.random()*3)+'px';
+  star.style.animationDuration = (Math.random()*3+2)+'s';
+  document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>

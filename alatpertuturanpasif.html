@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alat Pertuturan Pasif Kreatif</title>
+
+<style>
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+  background: radial-gradient(ellipse at bottom,#0d0d1a 0%,#000 100%);
+  color:white;
+  text-align:center;
+  padding:20px;
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+
+/* ===== STARS ===== */
+.star{
+  position:fixed;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 3s infinite;
+  box-shadow:0 0 6px white;
+  width:2px;
+  height:2px;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:10px 15px;
+  background:rgba(255,77,77,0.2);
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.2);
+  font-size:16px;
+  font-weight:bold;
+  transition:0.3s ease;
+  z-index:1000;
+}
+
+.back-btn:hover{
+  background:#ff4d4d;
+  box-shadow:0 0 10px #ff4d4d, 0 0 20px #ff4d4d;
+  transform:scale(1.1);
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  margin-top:80px;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+}
+
+/* ===== TITLE ===== */
+h1{
+  color:#00ffff;
+  text-align:center;
+  text-shadow:0 0 15px #000;
+  font-size:clamp(24px,5vw,36px);
+  margin-bottom:30px;
+}
+
+/* ===== CARD ===== */
+.card{
+  margin:25px auto;
+  padding:20px;
+  border-radius:15px;
+  line-height:1.7;
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+  opacity:0;
+  animation:fadeSlideUp 1s forwards;
+  transition:0.3s ease, transform 0.3s, box-shadow 0.3s;
+}
+
+/* ===== COLORS UNTUK NOTA ===== */
+.card.gigi{ background: rgba(255, 223, 102,0.1); border-left:5px solid #ffdf66; }
+.card.gusi{ background: rgba(102, 204, 255,0.1); border-left:5px solid #66ccff; }
+.card.lelangit{ background: rgba(255,102,102,0.1); border-left:5px solid #ff6666; }
+.card.anaktekak{ background: rgba(102,255,102,0.1); border-left:5px solid #66ff66; }
+.card.pitasuara{ background: rgba(153,102,255,0.1); border-left:5px solid #9966ff; }
+.card.rahang{ background: rgba(255,153,102,0.1); border-left:5px solid #ff9966; }
+.card.tenggorok{ background: rgba(102,255,255,0.1); border-left:5px solid #66ffff; }
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeSlideUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== HEADINGS ===== */
+h2{
+  color:#00ffff;
+  margin-bottom:10px;
+}
+
+/* ===== PARAGRAPH & LIST ===== */
+p, li{
+  font-size:clamp(14px,4vw,16px);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+/* ===== LIST ===== */
+ul{
+  margin-top:8px;
+  padding-left:20px;
+}
+li{
+  margin-bottom:5px;
+}
+
+/* ===== IMAGE ===== */
+.card img{
+  display:block;
+  margin:15px auto;
+  width:100%;
+  max-width:350px;
+  height:220px;
+  object-fit:cover;
+  border-radius:15px;
+  cursor:pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card img:hover{
+  transform:scale(1.05);
+  box-shadow:0 8px 25px rgba(0,0,0,0.7);
+}
+
+/* Lelangit & pita suara lebih besar */
+.card.lelangit img,
+.card.pitasuara img{
+  width:100%;
+  max-width:1000px;
+  height:auto;
+  object-fit:contain;
+  margin:10px 0;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.lightbox img{
+  max-width:90%;
+  max-height:80%;
+  border-radius:15px;
+}
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:35px;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<a href="jenis alat pertuturan.html" class="back-btn">⬅ Kembali</a>
+
+<div class="container">
+<h1>Alat Pertuturan Pasif Kreatif</h1>
+
+<div class="card">
+    <h2>Definisi</h2>
+    <p>
+        Alat pertuturan pasif ialah daerah artikulasi yang tidak boleh digerakkan semasa penghasilan bunyi bahasa. Daerah artikulasi 
+		ialah bahagian yang menjadi sekatan, sempitan atau gangguan udara oleh alat artikulasi dalam penghasilan bunyi bahasa.
+    </p>
+</div>
+
+<div class="card gigi">
+<h2>Gigi</h2>
+<img src="gigi.jpg" onclick="openLightbox(0)">
+<ul>
+<li>Alat pertuturan tidak boleh digerakkan dan berperanan sebagai tempat sekatan udara</li>
+<li>Menahan udara daripada terus keluar melalui rongga mulut</li>
+<li>Membantu menghasilkan bunyi <b>f</b> dan <b>v</b></li>
+</ul>
+</div>
+
+<div class="card gusi">
+<h2>Gusi</h2>
+<img src="gusi.png" onclick="openLightbox(1)">
+<ul>
+<li>Terletak selepas <b>gigi hingga lelangit keras</b></li>
+<li>Keadaannya <b>cembung</b> dan berperanan menyekat udara oleh bahagian lidah tertentu untuk menghasilkan bunyi</li>
+<li>Tempat lidah menyentuh untuk bunyi <b>t, d, n, s</b>.</li>
+</ul>
+</div>
+
+<div class="card lelangit">
+<h2>Lelangit</h2>
+<img src="lelangit.jpg" onclick="openLightbox(2)">
+<ul>
+<li>Terbahagi kepada dua iaitu <b>lelangit keras dan lelangit lembut</b></li>
+<li>Lelangit keras: berada pada kedudukan selepas gusi dan agak keras</li>
+<li>Lelangit lembut: bersambung dengan anak tekak</li>
+<li>Apabila lelangit lembut dinaikkan, rongga hidung tutup dan udara keluar dari rongga mulut terhasil bunyi oval</li>
+<li>Apabila lelangit lembut diturunkan, udara keluar dari rongga hidung terhasil bunyi nasal</li>
+</ul>
+</div>
+
+<div class="card anaktekak">
+<h2>Anak Tekak</h2>
+<img src="anaktekak.jpg" onclick="openLightbox(3)">
+<ul>
+<li>Berada di belakang rongga mulut dan bersambung dengan lelangit lembut</li>
+<li>Penting untuk bunyi farinks.</li>
+</ul>
+</div>
+
+<div class="card pitasuara">
+<h2>Pita Suara</h2>
+<img src="pita suara.jpg" onclick="openLightbox(4)">
+<ul>
+<li>Merupakan peti suara di ruang tengkorak dan mempunyai selaput suara yang lembut</li>
+<li>Pita suara bergetar apabila mendapat tekanan daripada aliran udara dari paru-paru</li>
+<li>Jika bergetar maka bunyi bersuara terhasil seperti [b] dan [d]</li>
+<li>Jika tidak bergetar maka bunyi tidak bersuara terhasil seperti [p] dan [t]</li>
+</ul>
+</div>
+
+<div class="card rahang">
+<h2>Rahang</h2>
+<img src="rahang.jpg" onclick="openLightbox(5)">
+<ul>
+<li>Bahagian bertulang pada bahagian dagu</li>
+<li>Boleh dibuka dan ditutup</li>
+<li>Jika rahang terbuka luas, bunyi vokal rendah terhasil</li>
+<li>Jika rahang terbuka sempit, bunyi vokal tinggi terhasil</li>
+</ul>
+</div>
+
+<div class="card tenggorok">
+<h2>Tenggorok</h2>
+<img src="tenggorok.jpg" onclick="openLightbox(6)">
+<ul>
+<li>Merupakan saluran tempat keluarnya udara dari paru-paru</li>
+<li>Udara akan ke rongga tekak, rongga mulut, atau rongga hidung</li>
+<li>Mempengaruhi resonansi suara.</li>
+</ul>
+</div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+let images = ["gigi.jpg","gusi.png","lelangit.jpg","anaktekak.jpg","pita suara.jpg","rahang.jpg","tenggorok.jpg"];
+
+function openLightbox(index){
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = images[index];
+}
+
+function closeLightbox(){
+    document.getElementById("lightbox").style.display = "none";
+}
+
+/* ===== TAMBAH BINTANG ===== */
+for(let i=0;i<50;i++){
+  let star = document.createElement('div');
+  star.classList.add('star');
+  star.style.top = Math.random()*100 + "vh";
+  star.style.left = Math.random()*100 + "vw";
+  star.style.width = star.style.height = Math.random()*2+1 + "px";
+  document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>

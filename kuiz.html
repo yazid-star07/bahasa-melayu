@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz Alat Pertuturan</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BACKGROUND */
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color:white;
+}
+
+/* CONTAINER */
+.container{
+    width:350px;
+    padding:25px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    text-align:center;
+    animation:fadeIn 1s ease;
+}
+
+/* BUTANG JAWAB KUIS */
+.btn{
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background: linear-gradient(135deg, #4facfe, #00c6ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* BUTANG KEMBALI MODEN */
+.back-btn{
+    position: fixed;
+    top:15px;
+    left:15px;
+    padding:10px 20px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* gradient cerah */
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+/* Hover animasi */
+.back-btn:hover{
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* ANIMATION CONTAINER */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- BUTANG KEMBALI CERAH & MODEN -->
+<button class="back-btn" onclick="window.history.back()">← Kembali</button>
+
+<div class="container">
+    <h1>Kuiz Alat Pertuturan</h1>
+    <p>Untuk menjawab kuiz, sila klik pautan di bawah:</p>
+    
+    <!-- BUTANG JAWAB KUIS -->
+    <a class="btn" href="https://forms.gle/e1wPP1Mv2zUTgTvG8" target="_blank">Jawab Kuiz</a>
+</div>
+
+</body>
+</html>

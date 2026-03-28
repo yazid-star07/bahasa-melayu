@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilihan</title>
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BACKGROUND */
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* BUTANG KEMBALI (ATAS KIRI) */
+.back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.back-btn:hover{
+    transform:scale(1.05);
+}
+
+.back-btn:active{
+    transform:scale(0.95);
+}
+
+/* CONTAINER */
+.container{
+    text-align:center;
+    padding:40px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    color:white;
+    width:300px;
+    animation:fadeIn 1s ease;
+}
+
+/* TITLE */
+.container h1{
+    margin-bottom:25px;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background: linear-gradient(135deg, #4facfe, #00c6ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- BUTANG KEMBALI -->
+<button class="back-btn" onclick="goHome()">← Kembali</button>
+
+<div class="container">
+    <h1>Pilih Menu</h1>
+
+    <button class="btn" onclick="goPage('services.html')">Alat Pertuturan</button>
+    <button class="btn" onclick="goPage('jenis alat pertuturan.html')">Jenis Alat Pertuturan</button>
+    <button class="btn" onclick="goPage('kuiz.html')">Kuiz</button>
+</div>
+
+<script>
+function goPage(page){
+    window.location.href = page;
+}
+
+function goHome(){
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alat Pertuturan Aktif</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+  background: radial-gradient(ellipse at bottom,#0d0d1a 0%,#000 100%);
+  color:white;
+  text-align:center;
+  padding:20px;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== STARS ===== */
+.star{
+  position:fixed;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 3s infinite;
+  box-shadow:0 0 6px white;
+  width:2px;
+  height:2px;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:10px 15px;
+  background:rgba(255,77,77,0.2);
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.2);
+  font-size:18px;
+  font-weight:bold;
+  transition:0.3s ease;
+  z-index:1000;
+}
+.back-btn:hover{
+  background:#ff4d4d;
+  box-shadow:0 0 10px #ff4d4d, 0 0 20px #ff4d4d;
+  transform:scale(1.1);
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  margin-top:80px;
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+}
+
+/* ===== TITLE ===== */
+h1{
+  color:#ffcc00;
+  text-align:center;
+  text-shadow:0 0 15px #ffcc00;
+  font-size:clamp(24px,5vw,32px);
+  margin-bottom:30px;
+}
+
+/* ===== CARD ===== */
+.card{
+  margin:25px auto;
+  padding:20px;
+  max-width:650px;
+  border-radius:15px;
+  line-height:1.7;
+  text-align:left;
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+  opacity:0;
+  animation:fadeSlideUp 1s forwards;
+  transition:0.3s ease, transform 0.3s, box-shadow 0.3s;
+}
+
+.card.bibir{ background:rgba(255,204,0,0.08); border-left:4px solid #ffcc00; }
+.card.lidah{ background:rgba(0,200,255,0.08); border-left:4px solid #00c8ff; }
+.card.multimedia{ background:rgba(255,100,150,0.08); border-left:4px solid #ff6496; }
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeSlideUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== TEXT ===== */
+h2{
+  color:#ffcc00;
+  margin-bottom:10px;
+}
+
+p, li{
+  font-size:clamp(14px, 4vw,16px);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+ul{ padding-left:20px; margin-top:8px; }
+li{ margin-bottom:5px; }
+
+/* ===== IMAGE ===== */
+.card img{
+  display:block;
+  margin:15px auto;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.card img:hover{
+  transform: scale(1.05);
+  box-shadow:0 0 15px rgba(255,255,255,0.3);
+}
+
+/* Lidah kecil */
+.card.lidah img{
+  max-width:300px;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.lightbox img{
+  max-width:90%;
+  max-height:80%;
+  border-radius:10px;
+}
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:35px;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<a href="jenis alat pertuturan.html" class="back-btn">⬅ Kembali</a>
+
+<div class="container">
+<h1>Alat Pertuturan Aktif</h1>
+
+<div class="card bibir">
+<h2>Bibir</h2>
+<img src="gambar2.jpg" onclick="openLightbox(0)">
+<img src="gambar3.jpg" onclick="openLightbox(1)">
+<p>Bibir ialah alat pertuturan aktif yang penting. Ia boleh membuka, menutup, membundarkan, dan meregang untuk menghasilkan bunyi tertentu.</p>
+<ul>
+<li>Menghasilkan bunyi <b>p, b, m</b></li>
+<li>Membentuk bunyi vokal seperti <b>u</b> dan <b>o</b></li>
+<li>Mengawal aliran udara keluar dari mulut</li>
+</ul>
+</div>
+
+<div class="card lidah">
+<h2>Lidah</h2>
+<img src="lidah.png" onclick="openLightbox(2)">
+<p>Lidah boleh bergerak ke atas, ke bawah, ke depan, dan ke belakang untuk menghasilkan bunyi yang jelas.</p>
+<ul>
+<li>Depan lidah: bertentangan dengan lelangit keras</li>
+<li>Badan lidah: keseluruhan lidah</li>
+<li>Hujung lidah: bahagian paling depan</li>
+<li>Tengah lidah: bahagian atas tengah lidah</li>
+<li>Belakang lidah: bertentangan dengan lelangit lembut</li>
+</ul>
+</div>
+
+<div class="card multimedia">
+<h2>Kesimpulan</h2>
+<p>Bibir dan lidah bekerjasama menghasilkan bunyi yang jelas dalam komunikasi harian.</p>
+</div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<span class="close" onclick="closeLightbox()">&times;</span>
+<img id="lightbox-img">
+</div>
+
+<script>
+let images = ["gambar2.jpg","gambar3.jpg","lidah.png"];
+
+function openLightbox(index){
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = images[index];
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display = "none";
+}
+
+/* ===== TAMBAH BINTANG ===== */
+for(let i=0;i<50;i++){
+  let star = document.createElement('div');
+  star.classList.add('star');
+  star.style.top = Math.random()*100 + "vh";
+  star.style.left = Math.random()*100 + "vw";
+  star.style.width = star.style.height = Math.random()*2+1 + "px";
+  document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazid Space</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+/* ===== BACKGROUND SIMPLE ===== */
+body{
+  background:#0a0a12;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ===== LOADER ===== */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:999;
+}
+
+.galaxy{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background: radial-gradient(circle, #00cfff, transparent 70%);
+  box-shadow:0 0 30px #00cfff;
+  animation:spin 3s linear infinite;
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+.loading-text{
+  margin-top:20px;
+  animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 5px #fff;}
+  to{text-shadow:0 0 20px #00cfff;}
+}
+
+/* ===== STARS ===== */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  opacity:0.5;
+}
+
+/* ===== NAVBAR ===== */
+header{
+  background:rgba(0,0,0,0.6);
+  padding:20px;
+  position:fixed;
+  width:100%;
+  z-index:10;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+}
+
+.logo{
+  font-size:22px;
+}
+
+.menu{
+  list-style:none;
+  display:flex;
+  margin-left:auto;
+}
+
+.menu li{
+  margin-left:25px;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:36px;
+  color:#00cfff;
+}
+
+.hero p{
+  margin-top:10px;
+}
+
+/* ===== BUTTON ===== */
+button{
+  position:relative;
+  overflow:hidden;
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  background:#00cfff;
+  color:black;
+  cursor:pointer;
+  border-radius:8px;
+  transition:0.3s;
+}
+
+/* hover glow */
+button:hover{
+  box-shadow:0 0 10px #00cfff, 0 0 25px #00cfff;
+}
+
+/* ripple */
+button span{
+  position:absolute;
+  border-radius:50%;
+  transform:scale(0);
+  animation:ripple 0.6s linear;
+  background:rgba(255,255,255,0.5);
+}
+
+@keyframes ripple{
+  to{
+    transform:scale(4);
+    opacity:0;
+  }
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:26px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="galaxy"></div>
+  <h2 class="loading-text">MASUK.....</h2>
+</div>
+
+
+
+<!-- HERO -->
+<section class="hero">
+<h1>Inovasi Bahasa Melayu STPM</h1>
+<p>nama kumpulan</p>
+<a href="pilihan.html"><button>Mula</button></a>
+</section>
+
+<script>
+
+/* ===== LOADER ===== */
+window.addEventListener("load", function(){
+  setTimeout(()=>{
+    document.getElementById("loader").style.opacity="0";
+    setTimeout(()=>{
+      document.getElementById("loader").style.display="none";
+    },500);
+  },2000);
+});
+
+/* ===== STARS ===== */
+for(let i=0;i<80;i++){
+  let star=document.createElement('div');
+  star.className='star';
+  star.style.top=Math.random()*100+'vh';
+  star.style.left=Math.random()*100+'vw';
+  document.body.appendChild(star);
+}
+
+/* ===== RIPPLE EFFECT ===== */
+document.querySelectorAll("button").forEach(btn=>{
+  btn.addEventListener("click", function(e){
+    let x = e.clientX - e.target.offsetLeft;
+    let y = e.clientY - e.target.offsetTop;
+
+    let ripple = document.createElement("span");
+    ripple.style.left = x + "px";
+    ripple.style.top = y + "px";
+
+    this.appendChild(ripple);
+
+    setTimeout(()=>{
+      ripple.remove();
+    },600);
+  });
+});
+
+</script>
+
+</body>
+</html>
